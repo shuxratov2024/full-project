@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Play:wght@400;700&family=Zen+Dots&display=swap');
+
+.Create {
+    width: 300px;
+    transition: all 0.3s ease-in;
+    display: flex;
+    opacity: 0;
+    z-index: 9999;
+    justify-content: center;
+    align-items: start;
+    text-align: center;
+    flex-direction: row;
+    background-color: #fafafafa;
+    transform: translateX(0%);
+    transition: all 0.3s ease-in;
+    /* float: right; */
+}
+
+.Create-Content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.Create-Title {
+    font-size: 20px;
+    text-decoration: none;
+    font-family: "Play";
+    color: #008000;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form input {
+    padding: 15px 18px;
+    outline: none;
+    border-radius: 15px;
+    border: 1px solid #008000;
+}
+
+.btn-submit {
+    padding: 15px 75px;
+    background-color: #008000;
+    color: white;
+    border-radius: 17px;
+    margin-top: 40px;
+    border: none;
+}
+
+.Create.open {
+    display: flex;
+    opacity: 1;
+    height: 100vh;
+    margin-right: 20px;
+    z-index: 9999;
+    justify-content: center;
+    align-items: start;
+    text-align: center;
+    flex-direction: row;
+    background-color: #fafafafa;
+    transform: translateX(0%);
+    transition: all 0.3s ease-in;
+    float: right;
+}
+
+.sistem {
+    display: flex;
+}
+
+.sistem button {
+    background-color: transparent;
+    border: none;
+    position: relative;
+    left: 70px;
+}

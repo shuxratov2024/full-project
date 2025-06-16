@@ -1,0 +1,7 @@
+body{
+    overflow:hidden;
+}
+.Full{
+    display: flex;
+    flex-direction: column;
+}

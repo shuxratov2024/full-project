@@ -1,0 +1,37 @@
+.Navbar {
+    position: fixed;
+    max-width: 1400px;
+    width: 100%;
+    
+    padding: 10px;
+}
+
+.Navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Navbar-title {
+    font-size: 23px;
+    text-decoration: none;
+    color: #008000;
+}
+
+.Navbar-title:hover {
+transition: all 0.3s ease;
+    color: #ced2ba;
+}
+.Create-Post {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
+    padding: 15px 25px;
+    background-color: #008000;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+}
+
