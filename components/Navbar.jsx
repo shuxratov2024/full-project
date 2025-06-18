@@ -1,17 +1,44 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router';
-import "../styles/Navbar.css"
-import "../styles/CreatePost.css"
+import { Link, useNavigate } from 'react-router';
+import "../styles/Navbar.css";
+import "../styles/CreatePost.css";
 import SvgClose from './../public/SvgClose';
+import axios from 'axios';
 
 function Navbar() {
-  const [open, setOpen] = useState(false); 
+  const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [refreshTrigger, setRefreshTrigger] = useState(0); // Trigger uchun state
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!title || !content) {
+      console.error("Title or content cannot be empty");
+      return;
+    }
+    try {
+      await axios.post("http://localhost:8080/api/notes/create", {
+        title,
+        content,
+      });
+      console.log("Note Created");
+      setTitle("");
+      setContent("");
+      setOpen(false);
+      setRefreshTrigger(prev => prev + 1); // Trigger ni o'zgartirish
+      navigate("/"); // Sahifaga qaytish
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="Navbar">
       <div className="Navbar-content">
         <Link className="Navbar-title">7MESSAGE</Link>
-        <button type="submit" className="Create-Post" onClick={() => setOpen(true)}>
+        <button className="Create-Post" onClick={() => setOpen(true)}>
           Create Post
         </button>
       </div>
@@ -24,13 +51,22 @@ function Navbar() {
                 <SvgClose />
               </button>
             </div>
-            <form className="form">
-              <input type="text" placeholder="Write your name or username" />
-              <input type="text" placeholder="Write your text " />
+            <form className="form" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Write your name or username"
+              />
+              <textarea
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                placeholder="Write your text "
+              />
+              <button className="btn-submit" type="submit">
+                Create Note
+              </button>
             </form>
-            <button className="btn-submit" type="submit">
-              Submit
-            </button>
           </div>
         </div>
       )}
