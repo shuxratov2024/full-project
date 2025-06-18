@@ -4,7 +4,7 @@ const router = express.Router()
 
 
 router.get("/get/:id",getOne)
-router.get("/get-all",GetAll)
+router.get("/get",GetAll)
 router.post("/create",createNote)
 router.put("/update/:id",updateNote)
 router.delete("/delete/:id",deleteNote)
