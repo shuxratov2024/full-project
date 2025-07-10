@@ -60,7 +60,6 @@ async function updateNote(req, res) {
 
 async function deleteNote(req,res) {
     try {
-        // const {title,content} =req.body;
         const deletedNote = await Note.findByIdAndDelete(req.params.id,)
         res.status(200).json({message:"Note deleted successfully"})
     } catch (error) {
